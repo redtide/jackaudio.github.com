@@ -1,0 +1,10 @@
+---
+collection: faq
+permalink: /faq/%basename/
+---
+{% extends "_layouts/default.html.twig" %}
+
+{% block content %}
+    <h1>{{ this.title }}</h1>
+    {{ this.content | markdown }}
+{% endblock %}

@@ -1,6 +1,6 @@
 # Source code for the [jackaudio.org] homepage
 
-[![Travis build badge]](https://travis-ci.org/jackaudio/jackaudio.github.com)
+[![GitHub build badge]](https://github.com/jackaudio/jackaudio.github.com/actions)
 
 ## Contribute
 
@@ -19,19 +19,15 @@ so there won't be any drama.
 If you have any ideas or suggestions, please feel free to contact the authors via
 jack-devel mailinglist or on Github.
 
-## Test with Jekyll locally
+## Test with stakx locally
 
 In order to test the website without having a webserver running and also see
-the changes in real time use the `setup.sh` script to run [Jekyll] locally from
+the changes in real time use the `setup.sh` script to run [stakx] locally from
 the repository directory.
 
-It requires [ruby] to be installed, the rest will be installed locally in a
-`.bundle` directory.
+It requires `php` to be installed, the rest is bundled in the application.
 
-The current Gemfile configuration is set to use the same
-Jekyll version as [GitHub pages].
-
-The website will be available at <http://localhost:4000/>.
+The website will be available at <http://0.0.0.0:8000/>.
 
 If using another webserver you'll need to point it to the built `_site` directory.
 
@@ -39,7 +35,7 @@ If using another webserver you'll need to point it to the built `_site` director
 
 1. Create a new *.md file in the FAQ directory
 2. Insert a [YAML front-matter] header as in the other files in the FAQ directory,
-   they are required for Jekyll to process the file
+   they are required for stakx to process the file
 3. Add your content in markdown format
 4. Link to your new FAQ page in the `/faq/index.md` page
 
@@ -59,31 +55,23 @@ mask and [YAML front-matter] (see other post files as reference).
 ## Development notes
 
 - All page links currently require the `.html` suffix in order to work with any
-  webserver, not to depend solely on Jekyll.
+  webserver, not to depend solely on stakx.
 - Please use an [EditorConfig] compatible editor to avoid indentation,
   whitespaces and missing lines at EOF issues.
 - Desired line length maximum is 82 columns.
-- See above to how to test page's changes with Jekyll.
-- For further information please refer to the [Jekyll manual].
+- See above to how to test page's changes with stakx.
+- For further information please refer to the [stakx documentation].
 - Use external hosting links for the download section like [GitHub releases],
   no download files in the repository for a better maintenance.
 
-## TODO
-
-- A dedicated news/releases section? E.g. a secondary [blog],
-  custom [_posts] like directory.
-
-[jackaudio.org]:     https://jackaudio.org
-[JACK 1]:            https://github.com/jackaudio/jack1/issues
-[JACK 2]:            https://github.com/jackaudio/jack2/issues
-[pull request]:      https://github.com/jackaudio/jackaudio.github.com/pulls
-[Jekyll]:            https://jekyllrb.com/
-[ruby]:              https://www.ruby-lang.org/en/
-[GitHub pages]:      https://pages.github.com/versions/
-[YAML front-matter]: https://jekyllrb.com/docs/front-matter/
-[_posts]:            https://github.com/jackaudio/jackaudio.github.com/tree/master/_posts/
-[EditorConfig]:      https://editorconfig.org/
-[Jekyll manual]:     https://jekyllrb.com/docs/
-[GitHub releases]:   https://help.github.com/en/github/administering-a-repository/about-releases
-[blog]:              https://github.com/wxWidgets/website/tree/master/blog
-[Travis build badge]:https://img.shields.io/travis/jackaudio/jackaudio.github.com.svg?label=Build&style=popout&logo=jekyll
+[jackaudio.org]:       https://jackaudio.org
+[JACK 1]:              https://github.com/jackaudio/jack1/issues
+[JACK 2]:              https://github.com/jackaudio/jack2/issues
+[pull request]:        https://github.com/jackaudio/jackaudio.github.com/pulls
+[stakx]:               https://stakx.io/
+[YAML front-matter]:   https://jekyllrb.com/docs/front-matter/
+[_posts]:              https://github.com/jackaudio/jackaudio.github.com/tree/master/_posts/
+[EditorConfig]:        https://editorconfig.org/
+[stakx documentation]: https://stakx.io/docs/welcome/
+[GitHub releases]:     https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases
+[GitHub build badge]:  https://github.com/jackaudio/jackaudio.github.com/actions/workflows/build.yml/badge.svg

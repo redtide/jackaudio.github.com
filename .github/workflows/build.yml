@@ -1,0 +1,46 @@
+name: Site
+on: push
+env:
+  ASSET_NAME: stakx-0.2.1.phar
+  ASSET_ID: 22509930
+jobs:
+  site:
+    name: Site
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Download stakx
+      run: |
+        curl -LJO \
+          -H "Accept: application/octet-stream" \
+          https://api.github.com/repos/stakx-io/stakx/releases/assets/${ASSET_ID}
+        mv ${ASSET_NAME} stakx
+        chmod +x stakx
+#   - name: Install Dependencies
+#     run: sudo apt-get install -y doxygen libdb-dev
+#   - name: Build API Documentation
+#     run: bash setup.sh --doxygen
+    - name: Build
+      if: ${{ github.repository_owner == 'jackaudio' }}
+      run: bash setup.sh --build
+    - name: Build Fork
+      if: ${{ github.repository_owner != 'jackaudio' }}
+      run: |
+        ./stakx build --conf=_config_fork.yml
+        BASEURL_DIR="$GITHUB_WORKSPACE/_www/$(echo '${{ github.repository }}' | cut -d/ -f2)"
+        pushd "${BASEURL_DIR}"; mv ./* ./../; popd
+        rm -rf "${BASEURL_DIR}"
+    - name: Upload to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: www
+        publish_dir: ./_www
+        # "With the v3, the keep_files option does not support working with the force_orphan option.
+        # The next major release (version 4) will support this."
+        # We need to keep files from the API build. See:
+        # https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-keeping-existing-files-keep_files
+        # https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-force-orphan-force_orphan
+        keep_files: true
+        #force_orphan: true

@@ -1,6 +1,7 @@
 ---
 title: "Past, Present and Future of the JACK Audio Connection Kit (in video form)"
 author: "falkTX"
+date: "2019-11-14T00:00:00+0000"
 ---
 A few weeks ago I did a talk/presentation at [Sonoj],
 regarding the past, present and future of the JACK.

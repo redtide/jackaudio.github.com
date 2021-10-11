@@ -1,28 +1,34 @@
-collections:
-- name: content
-  folder: _content
-- name: faq
-  folder: _faq
-- name: metadata
-  folder: _metadata
-- name: posts
-  folder: _posts
+defaults:
+- scope:
+    path: ""
+    type: "pages"
+  values:
+    layout: "default"
+    date_fmt: "%F"
 
-pageviews:
-- _pages
-
-target: _www
-
-templates:
-  redirect: false
+- scope:
+    path: ""
+    type: "posts"
+  values:
+    layout: "post"
+    categories: "news"
+    date_fmt: "%F"
 
 exclude:
 - README.md
+- Gemfile
+- Gemfile.lock
 - new_post.sh
 - setup.sh
-- stakx
+- node_modules
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/
 
 name: JACK Audio Connection Kit
+markdown: Kramdown
+highlighter: rouge
 
 url: "https://jackaudio.org"
 
@@ -35,6 +41,7 @@ repository:
 
 # Slate theme settings, here only for the slate-theme page as example.
 show_downloads: true
+google_analytics:
 
 # Overriding GH settings as demonstration.
 # We don't rely on these ones but using our own above.

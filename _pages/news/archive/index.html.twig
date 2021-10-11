@@ -1,0 +1,27 @@
+---
+title: "News Archive"
+permalink: /news/archive/
+---
+{% extends "_layouts/default.html.twig" %}
+
+{% block content %}
+<h2>{{ this.title }}</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Post</th>
+			<th>Date</th>
+			<th>Author</th>
+		</tr>
+	</thead>
+	<tbody>
+{% for post in collections.posts | order('date', 'DESC') %}
+		<tr>
+			<td><a href="{{ url(post) }}">{{ post.title | escape }}</a></td>
+			<td><time datetime="{{ post.date | date('c') }}">{{ post.date | date("Y-m-d") }}</time></td>
+			<td>{{ post.author }}</td>
+		</tr>
+{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

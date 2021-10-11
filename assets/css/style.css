@@ -4,7 +4,7 @@ by Jason Costello, @jsncostello
 *******************************************************************************/
 
 @import url(normalize.css);
-@import url(pygment_trac.css);
+@import url(vs.css);
 
 /*******************************************************************************
 Theme Styles
@@ -110,6 +110,11 @@ p img {
   vertical-align: middle;
   text-align: center;
   border: none;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
 }
 
 pre, code {

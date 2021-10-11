@@ -1,0 +1,21 @@
+name: API (Doxygen)
+on: workflow_dispatch
+jobs:
+  api:
+    name: API
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: sudo apt-get install -y doxygen libdb-dev
+    - name: Build Documentation
+      run: bash setup.sh --doxygen
+    - name: Upload to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: www
+        publish_dir: ./_www
+        keep_files: true # From the site build
+        #force_orphan: true

@@ -1,0 +1,9 @@
+---
+collection: content
+permalink: /%basename/
+---
+{% extends "_layouts/default.html.twig" %}
+
+{% block content %}
+    {{ this.content | markdown }}
+{% endblock %}

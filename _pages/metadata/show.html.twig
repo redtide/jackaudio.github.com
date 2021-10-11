@@ -1,0 +1,9 @@
+---
+collection: metadata
+permalink: /metadata/%basename/
+---
+{% extends "_layouts/default.html.twig" %}
+
+{% block content %}
+    {{ this.content | markdown }}
+{% endblock %}

@@ -1,6 +1,7 @@
 ---
 title: "JACK2 v1.9.12 release and future plans"
 author: "falkTX"
+date: "2017-12-21T00:00:00+0000"
 ---
 A few days ago a new version of JACK2 was released.<br/>
 You can grab the latest release source code at

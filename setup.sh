@@ -1,29 +1,25 @@
 #!/bin/bash
-
 set -e
 
-if [ "${1}" == "-h" ] || [ "${1}" == "--help" ]; then
-    echo "Setup and run Jekyll"
+show_usage() {
+    echo "Setup and run stakx"
     echo ""
     echo "Usage: ${0} [option]"
     echo ""
     echo "Options:"
+    echo "-b, --build        Build website pages using stakx."
     echo "-d, --doxygen      Build Doxygen documentation."
+    echo "-s, --serve        Run website using the internal stakx webserver."
     echo ""
-    exit 0
-fi
-if [ ! -d .bundle ]; then
-    gem update --user-install
-    gem install bundler --user-install
-    # bundle config set path '.bundle'
-    bundle install --path .bundle
-fi
-if [ "${1}" == "-d" ] || [ "${1}" == "--doxygen" ]; then
-    if [ ! -d _jack1 ]; then
-        git clone --recursive git@github.com:jackaudio/jack1 _jack1
-    fi
+}
+
+build-doxygen() {
+    # Keep JACK documenatation up to date
+    if [ -d _jack1 ]; then rm -rf _jack1; fi
+
+    git clone --recursive https://github.com/jackaudio/jack1.git _jack1
+
     pushd _jack1
-    git pull && git submodule update
     if [ ! -f configure ]; then
         ./autogen.sh
     fi
@@ -39,6 +35,32 @@ if [ "${1}" == "-d" ] || [ "${1}" == "--doxygen" ]; then
     popd
     rm -rf api
     mv _jack1/doc/reference/html api
-fi
+}
 
-bundle exec jekyll serve --watch --host=0.0.0.0
+main() {
+    local STAKX_CMD=stakx
+    if [ "${GITHUB_ACTIONS}" = true ]; then STAKX_CMD=./stakx; fi
+
+    for i in "$@"; do
+        case $i in
+            -b|--build)
+                ${STAKX_CMD} build
+                shift
+                ;;
+            -d|--doxygen)
+                build-doxygen
+                shift
+                ;;
+            -s|--serve)
+                ${STAKX_CMD} serve
+                exit 0
+                ;;
+            *)
+                show_usage
+                exit 0
+                ;;
+        esac
+    done
+}
+
+main "$@"

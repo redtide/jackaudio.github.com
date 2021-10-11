@@ -1,0 +1,21 @@
+---
+title: "News"
+permalink: /news/
+---
+{% extends "_layouts/default.html.twig" %}
+
+{% block content %}
+    {% for post in collections.posts | order('date', 'DESC') | slice(0, 5) %}
+        <h2><a href="{{ url(post) }}">{{ post.title }}</a></h2>
+        <p><strong>
+            On <time datetime="{{ post.date }}"
+            {% if updated %}data-updated="true"{% endif %}>
+            {{ post.date | date(post.date_fmt) }}</time>
+            {% if post.author %}
+                by <a href="https://github.com/{{ post.author }}">{{ post.author }}</a>
+            {% endif %}
+        </strong></p>
+        {{ post.content }}
+    {% endfor %}
+    [ <a href="{{ url(pages["News Archive"]) }}">News Archive</a> ]
+{% endblock %}

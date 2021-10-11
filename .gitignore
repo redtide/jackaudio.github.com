@@ -9,6 +9,12 @@ _site
 .sass-cache
 Gemfile.lock
 
+/api/
+/bin/
+/_www/
+/*stakx*
+/vendor/
+
 # VSCode project
 *.code-workspace
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name="description" content="{{ site.name }} | {{ page.title }}" />
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ url("/assets/css/style.css") }}">
+        <link rel="alternate" type="application/atom+xml" href="{{ url("/atom.xml") }}" title="JACK Audio News">
+        <title>{{ this.title }} | {{ site.name }}</title>
+{% include "_includes/favicons.html.twig" %}
+    </head>
+    <body>
+{% include "_includes/header.html.twig" %}
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                {% block content %}{% endblock %}
+            </section>
+        </div>
+{% include "_includes/footer.html.twig" %}
+    </body>
+</html>

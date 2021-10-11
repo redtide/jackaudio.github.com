@@ -1,0 +1,16 @@
+{% extends "_layouts/default.html.twig" %}
+
+{% block content %}
+    <h2>{{ this.title }}</h2>
+    <p><strong>
+        Posted on <time datetime="{{ this.date }}"
+        {% if updated %}data-updated='true'{% endif %}>
+        {{ this.date | date(this.date_fmt) }}</time>
+        {% if this.author %}
+            by <a href="https://github.com/{{ this.author }}">{{ this.author }}</a>
+        {% endif %}
+    </strong></p>
+    <div class="post">
+        <article>{{ this.content }}</article>
+    </div>
+{% endblock %}

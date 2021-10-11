@@ -1,6 +1,7 @@
 ---
 title: "JACK mailing list is back!"
 author: "falkTX"
+date: "2019-12-16T00:00:00+0000"
 ---
 The mailing list for the JACK Audio project is back!
 You can now find it [here].
