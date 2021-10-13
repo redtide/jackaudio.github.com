@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name="description" content="JACK Audio Connection Kit | " />
+        <link rel="stylesheet" type="text/css" media="screen" href="/jackaudio.github.com/assets/css/style.css">
+        <link rel="alternate" type="application/atom+xml" href="/jackaudio.github.com/atom.xml" title="JACK Audio News">
+        <title>News | JACK Audio Connection Kit</title>
+        <!-- Favicon Generator Icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/jackaudio.github.com/assets/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/jackaudio.github.com/assets/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/jackaudio.github.com/assets/icons/favicon-16x16.png">
+        <link rel="manifest" href="/jackaudio.github.com/assets/icons/site.webmanifest">
+        <link rel="shortcut icon" href="/jackaudio.github.com/assets/icons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#212121">
+        <meta name="msapplication-config" content="/jackaudio.github.com/assets/icons/browserconfig.xml">
+        <meta name="theme-color" content="#212121">
+    </head>
+    <body>
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jackaudio">View on GitHub</a>
+                <a href="/jackaudio.github.com/">
+                    <img src="/jackaudio.github.com/assets/images/logo.png"
+                        alt="JACK Logo - Home" class="img-fluid">
+                </a>
+                <nav>
+                    <a href="/jackaudio.github.com/"> Home </a> |
+                    <a href="/jackaudio.github.com/news/"> News </a> |
+                    <a href="/jackaudio.github.com/applications/"> Applications </a> |
+                    <a href="/jackaudio.github.com/faq/"> FAQ </a> |
+                    <a href="https://github.com/jackaudio/jackaudio.github.com/wiki"> WIKI </a> |
+                    <a href="/jackaudio.github.com/api/"> API </a> |
+                    <a href="/jackaudio.github.com/downloads/"> Downloads </a> |
+                    <a href="/jackaudio.github.com/community/"> Community Network </a>
+                </nav>
+            </header>
+        </div>
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                            <h2><a href="/jackaudio.github.com/news/2021/08/13/macos-and-windows-nightly-builds/">macOS and Windows nightly builds</a></h2>
+        <p><strong>
+            On <time datetime="1628871714"
+            >
+            August 13, 2021 16:21</time>
+                            by <a href="https://github.com/falkTX">
+                        
+                                                                                    
+    <img
+         src="https://avatars.githubusercontent.com/falkTX?v=3&s=24"
+         srcset="https://avatars.githubusercontent.com/falkTX?v=3&s=24 1x, https://avatars.githubusercontent.com/falkTX?v=3&s=48 2x, https://avatars.githubusercontent.com/falkTX?v=3&s=72 3x, https://avatars.githubusercontent.com/falkTX?v=3&s=96 4x"
+         alt="falkTX"
+         height="24"
+         width="24"
+         data-proofer-ignore="true"
+    >
+falkTX
+                </a>
+                    </strong></p>
+        <p>Just a small heads up to mention that macOS and Windows nightly builds are now available for JACK2.</p>
+<p>You can find them in the <a href="https://github.com/jackaudio/jack2/actions">JACK2 GitHub actions</a> section, each successful build will have matching artifacts.<br />
+When you open a pull request, builds will be automatically generated.<br />
+(pending approval from JACK2 maintainers, but there is typically no reason not to approve)</p>
+<p>These artifacts include macOS-intel, macOS-universal, Ubuntu 20.04, Windows 32bit and Windows 64bit builds.<br />
+Note that neither QjackCtl or JACK-Router are included in these builds, only JACK.</p>
+            <h2><a href="/jackaudio.github.com/news/2021/07/16/jack2-v1.9.19-release/">JACK2 v1.9.19 release</a></h2>
+        <p><strong>
+            On <time datetime="1626442867"
+            >
+            July 16, 2021 13:41</time>
+                            by <a href="https://github.com/falkTX">
+                        
+                                                                                    
+    <img
+         src="https://avatars.githubusercontent.com/falkTX?v=3&s=24"
+         srcset="https://avatars.githubusercontent.com/falkTX?v=3&s=24 1x, https://avatars.githubusercontent.com/falkTX?v=3&s=48 2x, https://avatars.githubusercontent.com/falkTX?v=3&s=72 3x, https://avatars.githubusercontent.com/falkTX?v=3&s=96 4x"
+         alt="falkTX"
+         height="24"
+         width="24"
+         data-proofer-ignore="true"
+    >
+falkTX
+                </a>
+                    </strong></p>
+        <p>A new version of JACK2 has just been released.<br/>
+You can grab the latest release source code at
+<a href="https://github.com/jackaudio/jack2/releases">https://github.com/jackaudio/jack2/releases</a> and macOS/Windows installers at
+<a href="https://github.com/jackaudio/jack2-releases/releases">https://github.com/jackaudio/jack2-releases/releases</a>.</p>
+<p>This release focuses on 2 main things: <code>jack_position_t::tick_double</code> addition and forced alignment of a few internal data structures.
+A few other fixes were made as contributed by developers.</p>
+<p>This relase adds <code>tick_double</code> to the <code>jack_position_t</code> struct and <code>JackTickDouble</code> as a validation flag for it.
+Since older versions of JACK do not expose this variable, the macro <code>JACK_TICK_DOUBLE</code> is provided, which can be used as build-time detection.<br/></p>
+<p>The alignment change is because the packed structure layouts as used in JACK2 need to be naturally aligned in order to be accessed atomically in some systems.
+A non-aligned read or write can result in a &quot;Bus error&quot;, which brings down jackd.
+This seems to only be relevant on certain ARM systems, as JACK2 was obviously working before this change for most people.<br/>
+As a consequence of this change, the internal protocol version was bumped to 9, which <b>requires the restart of the JACK server</b> after the update.</p>
+<p>The official changelog is:</p>
+<ul>
+<li>Add jack_position_t::tick_double, and flags around it</li>
+<li>Add zalsa &quot;-w&quot; argument to wait for soundcard to be available</li>
+<li>Bump internal protocol version to 9 (due to struct alignment)</li>
+<li>Fix alignment of fields for atomic accesses</li>
+<li>Fix build for platforms needing __STDC_FORMAT_MACROS</li>
+<li>Fix compilation of documentation</li>
+</ul>
+<p>External changes, related to macOS/Windows installer:</p>
+<ul>
+<li>Fix macOS microphone permissions on qjackctl macOS app bundle</li>
+<li>Update qjackctl to 0.9.4</li>
+</ul>
+<p>Now, for the rationale behind the transport <code>tick_double</code> API update:</p>
+<p>When using JACK transport to sync between clients with precise timing requirements (such as MIDI sequencers) rounding errors would accumulate and eventually make the separate clients out of sync.<br/>
+This was observed in Carla and mod-host, which use audio plugins as JACK clients.
+Some MIDI plugins could miss notes due to rounding errors.
+This change has been deployed in MOD Devices for a couple of releases already and it is known to work (that is, it corrects the situation).</p>
+<p>There were discussions on IRC about this potentially be unnecessary, that clients can just use <code>bar_start_tick</code> to store the non-integer part of the tick.<br/>
+While the idea could work in theory, supporting it turns out to be non-trivial and from all applications that I have tested none implemented this part correctly.<br/>
+Some applications do not set <code>bar_start_tick</code> at all, even though they can be run as transport master.</p>
+<p>So since the transport API has padding members available for use and it has been unchanged for several years (so there won't be a need to add more fields in the short or middle term), well let's just go for it.</p>
+<p>Here is example code for transport-listening clients:</p>
+<pre><code class="hljs language-cpp"><span class="hljs-keyword">double</span> tick;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> JACK_TICK_DOUBLE</span>
+<span class="hljs-keyword">if</span> (pos.valid &amp; JackTickDouble)
+    tick = pos.tick_double;
+<span class="hljs-keyword">else</span>
+#endif
+    tick = pos.tick;</code></pre>
+            <h2><a href="/jackaudio.github.com/news/2021/04/15/jack2-v1.9.18-release/">JACK2 v1.9.18 release</a></h2>
+        <p><strong>
+            On <time datetime="1618490184"
+            >
+            April 15, 2021 12:36</time>
+                            by <a href="https://github.com/falkTX">
+                        
+                                                                                    
+    <img
+         src="https://avatars.githubusercontent.com/falkTX?v=3&s=24"
+         srcset="https://avatars.githubusercontent.com/falkTX?v=3&s=24 1x, https://avatars.githubusercontent.com/falkTX?v=3&s=48 2x, https://avatars.githubusercontent.com/falkTX?v=3&s=72 3x, https://avatars.githubusercontent.com/falkTX?v=3&s=96 4x"
+         alt="falkTX"
+         height="24"
+         width="24"
+         data-proofer-ignore="true"
+    >
+falkTX
+                </a>
+                    </strong></p>
+        <p>A new version of JACK2 has just been released.<br/>
+You can grab the latest release source code at
+<a href="https://github.com/jackaudio/jack2/releases">https://github.com/jackaudio/jack2/releases</a> and macOS/Windows installers at
+<a href="https://github.com/jackaudio/jack2-releases/releases">https://github.com/jackaudio/jack2-releases/releases</a>.</p>
+<p>This release focuses on 2 main things: adding zalsa internal client and fixing macOS builds in regards to DB/meta-data.<br/>
+A few other fixes were made as contributed by developers.</p>
+<p>With zalsa now part of JACK2, we are one more step closer to JACK1 feature parity.<br/>
+Worth noting that this is purely the client, we still need to add the switches to be able to load internal clients directly from <code>jackd</code> startup command-line.<br/>
+Will be interesting to attempt to make this zalsa client also behave as a &quot;slave adapter&quot; like done with ALSA <code>audioadapter</code>, <code>coremidi</code> and <code>winmme</code> drivers.<br/>
+Something for a future release.</p>
+<p>On macOS, please restart the JACK server after updating to 1.9.18.</p>
+<p>The official changelog is:</p>
+<ul>
+<li>Add zalsa_in/out as internal client (based on zita-a2j/j2a and jack1 code)</li>
+<li>Fix jack_midi_dump deadlock on close after the jack server is restarted</li>
+<li>Fix interrupt signal for linux futex waits</li>
+<li>Fix usage of meta-data in official macOS builds (private DB errors)</li>
+<li>Log error message when cleaning previous DB (macOS and Windows)</li>
+</ul>
+<p>Now for those unaware of this whole &quot;zalsa&quot; thing...<br/>
+This is basically zita-a2j/j2a by Fons Adriaensen repackaged as an internal client instead of being an external standalone tool.<br/>
+JACK1 already added this a few years ago.<br/>
+This zalsa version is slightly more up to date and with a few new fixes on top.</p>
+<p>On supported systems, we can use it by running:</p>
+<pre><code>jack_load zalsa_out -i "-d hw:Mio"</code></pre>
+<p>This will activate the &quot;Mio&quot; soundcard as an output in the JACK graph.<br/>
+You can use <code>jack_unload zalsa_out</code> to deactivate it, or alternatively control the start/stop purely in CLI with:</p>
+<pre><code>jack_load -w -a zalsa_out -i "-d hw:Mio"</code></pre>
+<p>Which will automatically unload the internal client after Ctrl+C or SIGTERM.</p>
+<p>Worth noting that, since internal clients run in the JACK server process,
+they will log/print information on that process and not on the <code>jack_load</code> one.<br/>
+So watch out for that if you need to debug anything.</p>
+            <h2><a href="/jackaudio.github.com/news/2021/01/15/jack2-v1.9.17-release/">JACK2 v1.9.17 release</a></h2>
+        <p><strong>
+            On <time datetime="1610730793"
+            >
+            January 15, 2021 17:13</time>
+                            by <a href="https://github.com/falkTX">
+                        
+                                                                                    
+    <img
+         src="https://avatars.githubusercontent.com/falkTX?v=3&s=24"
+         srcset="https://avatars.githubusercontent.com/falkTX?v=3&s=24 1x, https://avatars.githubusercontent.com/falkTX?v=3&s=48 2x, https://avatars.githubusercontent.com/falkTX?v=3&s=72 3x, https://avatars.githubusercontent.com/falkTX?v=3&s=96 4x"
+         alt="falkTX"
+         height="24"
+         width="24"
+         data-proofer-ignore="true"
+    >
+falkTX
+                </a>
+                    </strong></p>
+        <p>A new version of JACK2 has just been released.<br/>
+You can grab the latest release source code at
+<a href="https://github.com/jackaudio/jack2/releases">https://github.com/jackaudio/jack2/releases</a> and macOS/Windows installers at
+<a href="https://github.com/jackaudio/jack2-releases/releases">https://github.com/jackaudio/jack2-releases/releases</a>.</p>
+<p>This release focuses on improvements to the macOS and Windows binaries, now with macOS universal builds natively supporting Apple M1 hardware.<br/>
+On M1 hardware, you can now have native arm64 JACK clients talk to Intel/x64 once and vice-versa.</p>
+<p>On Windows, JACK-Router (the special ASIO driver that allows any ASIO-compatible application to talk to other JACK clients)
+has been brought back, now integrated with the installer so it is much easier to manage.<br/>
+Also, 32-bit and 64-bit clients can now be mixed without any side-effects to the meta-data.</p>
+<p>Please restart the JACK server after updating to 1.9.17 on those systems.</p>
+<p>The official changelog is:</p>
+<ul>
+<li>Add jack-router to Windows installer, opt-in</li>
+<li>Fix jack_control stopping after first command iteration</li>
+<li>Fix library compat/current version under macOS</li>
+<li>Fix registry keys for Windows, add 32bit compat ones on 64bit</li>
+<li>Fix return codes of jackd on success</li>
+<li>Ignore DB_VERSION_MISMATCH error on windows, it is expected</li>
+<li>Remove old workaround for asio4all, as it breaks with jack-router</li>
+<li>Support for arm64 macOS builds</li>
+<li>Show welcome and license pages on windows installer</li>
+<li>Update QjackCtl used in macOS/Windows installers to v0.9.0, with some commits cherry-picked from develop branch</li>
+</ul>
+            <h2><a href="/jackaudio.github.com/news/2020/10/16/jack2-v1.9.16-quick-hot-fix-for-v1.9.15/">JACK2 v1.9.16 quick hot-fix (for v1.9.15)</a></h2>
+        <p><strong>
+            On <time datetime="1602876173"
+            >
+            October 16, 2020 19:22</time>
+                            by <a href="https://github.com/falkTX">
+                        
+                                                                                    
+    <img
+         src="https://avatars.githubusercontent.com/falkTX?v=3&s=24"
+         srcset="https://avatars.githubusercontent.com/falkTX?v=3&s=24 1x, https://avatars.githubusercontent.com/falkTX?v=3&s=48 2x, https://avatars.githubusercontent.com/falkTX?v=3&s=72 3x, https://avatars.githubusercontent.com/falkTX?v=3&s=96 4x"
+         alt="falkTX"
+         height="24"
+         width="24"
+         data-proofer-ignore="true"
+    >
+falkTX
+                </a>
+                    </strong></p>
+        <p>An issue was found on the last JACK2 release that caused a few applications to crash on start.<br/>
+This is a quick hot-fix for that release. If you are running v1.9.15, please update.</p>
+<p>Because of a new release being needed, we took the chance to remove the jack-router Windows code,
+as it now belongs <a href="https://github.com/jackaudio/jack-router">in its own repository</a>.<br/>
+These two items are the full release.</p>
+<p>You can grab the latest release source code at
+<a href="https://github.com/jackaudio/jack2/releases">https://github.com/jackaudio/jack2/releases</a>.</p>
+<p>You can also grab the latest pre-built installers for macOS and Windows at
+<a href="https://github.com/jackaudio/jack2-releases/releases">https://github.com/jackaudio/jack2-releases/releases</a>.<br/>
+On other systems, ask your jack2 package maintainer to update to the latest release.</p>
+        [ <a href="/jackaudio.github.com/news/archive/">News Archive</a> ]
+            </section>
+        </div>
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright" style="text-align:left">Slate theme maintained by
+            <a href="https://github.com/pages-themes">pages-themes</a>
+            <span style="float:right">This site is open source.
+                <a href="https://github.com/jackaudio/jackaudio.github.com/edit/master/_pages/news/index.html.twig">
+                Improve this page</a>
+            </span>
+        </p>
+    </footer>
+</div>
+    </body>
+</html>

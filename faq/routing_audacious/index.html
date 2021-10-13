@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name="description" content="JACK Audio Connection Kit | " />
+        <link rel="stylesheet" type="text/css" media="screen" href="/jackaudio.github.com/assets/css/style.css">
+        <link rel="alternate" type="application/atom+xml" href="/jackaudio.github.com/atom.xml" title="JACK Audio News">
+        <title>How can I route audio from xmms/audacious/beep to JACK? | JACK Audio Connection Kit</title>
+        <!-- Favicon Generator Icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/jackaudio.github.com/assets/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/jackaudio.github.com/assets/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/jackaudio.github.com/assets/icons/favicon-16x16.png">
+        <link rel="manifest" href="/jackaudio.github.com/assets/icons/site.webmanifest">
+        <link rel="shortcut icon" href="/jackaudio.github.com/assets/icons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#212121">
+        <meta name="msapplication-config" content="/jackaudio.github.com/assets/icons/browserconfig.xml">
+        <meta name="theme-color" content="#212121">
+    </head>
+    <body>
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jackaudio">View on GitHub</a>
+                <a href="/jackaudio.github.com/">
+                    <img src="/jackaudio.github.com/assets/images/logo.png"
+                        alt="JACK Logo - Home" class="img-fluid">
+                </a>
+                <nav>
+                    <a href="/jackaudio.github.com/"> Home </a> |
+                    <a href="/jackaudio.github.com/news/"> News </a> |
+                    <a href="/jackaudio.github.com/applications/"> Applications </a> |
+                    <a href="/jackaudio.github.com/faq/"> FAQ </a> |
+                    <a href="https://github.com/jackaudio/jackaudio.github.com/wiki"> WIKI </a> |
+                    <a href="/jackaudio.github.com/api/"> API </a> |
+                    <a href="/jackaudio.github.com/downloads/"> Downloads </a> |
+                    <a href="/jackaudio.github.com/community/"> Community Network </a>
+                </nav>
+            </header>
+        </div>
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                    <h1>How can I route audio from xmms/audacious/beep to JACK?</h1>
+    <p>The xmms family of audio players is one of the oldest on the Linux platform,
+and is still a rather nice program to use for certain purposes. xmms evolved
+into beep which then evolved into audacious, but despite these multiple
+versions there is a nice, very functional plugin for all of them that will
+connect it to JACK. The instructions below refer to audacious but the steps
+are the same for any version of xmms/beep/audacious.</p>
+<ol>
+<li>Install the audacious plugin for JACK. The name of the package
+that contains this will vary depending on which Linux distribution
+you are using. On Fedora, its called <code>audacious-plugins-jack</code>.
+On Ubuntu, its called <code>audacious-plugins</code>.
+It might already be installed on your system.</li>
+<li>Start audacious. Click on the upper-right button to
+bring up the "main menu" and then click on "Preferences"</li>
+<li>Make sure you are looking at the "Audio" tab</li>
+<li>Select "JACK Output Plugin " from the "Current Output Selector" at the top.</li>
+<li>The default operation of the plugin is to connect its two outputs
+to the first two physical JACK outputs it can find.
+If you would prefer that it remain disconnected by default,
+or connect to all available ports (!), click on the
+"Output Plugin Preferences" button just below to make your choice.</li>
+<li>That's it!</li>
+</ol>
+            </section>
+        </div>
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright" style="text-align:left">Slate theme maintained by
+            <a href="https://github.com/pages-themes">pages-themes</a>
+            <span style="float:right">This site is open source.
+                <a href="https://github.com/jackaudio/jackaudio.github.com/edit/master/_faq/routing_audacious.md">
+                Improve this page</a>
+            </span>
+        </p>
+    </footer>
+</div>
+    </body>
+</html>

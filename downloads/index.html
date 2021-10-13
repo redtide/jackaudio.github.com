@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name="description" content="JACK Audio Connection Kit | " />
+        <link rel="stylesheet" type="text/css" media="screen" href="/jackaudio.github.com/assets/css/style.css">
+        <link rel="alternate" type="application/atom+xml" href="/jackaudio.github.com/atom.xml" title="JACK Audio News">
+        <title>Downloads | JACK Audio Connection Kit</title>
+        <!-- Favicon Generator Icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/jackaudio.github.com/assets/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/jackaudio.github.com/assets/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/jackaudio.github.com/assets/icons/favicon-16x16.png">
+        <link rel="manifest" href="/jackaudio.github.com/assets/icons/site.webmanifest">
+        <link rel="shortcut icon" href="/jackaudio.github.com/assets/icons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#212121">
+        <meta name="msapplication-config" content="/jackaudio.github.com/assets/icons/browserconfig.xml">
+        <meta name="theme-color" content="#212121">
+    </head>
+    <body>
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jackaudio">View on GitHub</a>
+                <a href="/jackaudio.github.com/">
+                    <img src="/jackaudio.github.com/assets/images/logo.png"
+                        alt="JACK Logo - Home" class="img-fluid">
+                </a>
+                <nav>
+                    <a href="/jackaudio.github.com/"> Home </a> |
+                    <a href="/jackaudio.github.com/news/"> News </a> |
+                    <a href="/jackaudio.github.com/applications/"> Applications </a> |
+                    <a href="/jackaudio.github.com/faq/"> FAQ </a> |
+                    <a href="https://github.com/jackaudio/jackaudio.github.com/wiki"> WIKI </a> |
+                    <a href="/jackaudio.github.com/api/"> API </a> |
+                    <a href="/jackaudio.github.com/downloads/"> Downloads </a> |
+                    <a href="/jackaudio.github.com/community/"> Community Network </a>
+                </nav>
+            </header>
+        </div>
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                    <h1 id="downloading-jack">Downloading JACK</h1>
+<h2 id="linux">Linux</h2>
+<ul>
+<li><strong>Binaries</strong>: please use your distribution's package manager
+(<code>apt-get, yum, synaptic</code> etc.)</li>
+<li><strong>Source tarball</strong>: <a href="https://github.com/jackaudio/jack2/archive/v1.9.19.tar.gz">JACK 1.9.19</a>.</li>
+</ul>
+<h2 id="macos">macOS</h2>
+<ul>
+<li><strong>Intel 64bit Installer</strong>: <a href="https://github.com/jackaudio/jack2-releases/releases/download/v1.9.19/jack2-macOS-intel-v1.9.19.tar.gz">JACK 1.9.19 macOS-intel</a>.</li>
+<li><strong>Universal Installer</strong>:   <a href="https://github.com/jackaudio/jack2-releases/releases/download/v1.9.19/jack2-macOS-universal-v1.9.19.tar.gz">JACK 1.9.19 macOS-universal</a>.</li>
+<li><strong>Source tarball</strong>:        <a href="https://github.com/jackaudio/jack2/archive/v1.9.19.tar.gz">JACK 1.9.19</a>.</li>
+</ul>
+<p>For macOS 10.12 or higher.</p>
+<p>Nightly builds are available through <a href="https://github.com/jackaudio/jack2/actions">JACK2 GitHub actions</a>.</p>
+<h2 id="windows">Windows</h2>
+<ul>
+<li><strong>32bit installer</strong>: <a href="https://github.com/jackaudio/jack2-releases/releases/download/v1.9.19/jack2-win32-v1.9.19.exe">JACK 1.9.19 win32</a>.</li>
+<li><strong>64bit installer</strong>: <a href="https://github.com/jackaudio/jack2-releases/releases/download/v1.9.19/jack2-win64-v1.9.19.exe">JACK 1.9.19 win64</a>.</li>
+<li><strong>Source tarball</strong>:  <a href="https://github.com/jackaudio/jack2/archive/v1.9.19.tar.gz">JACK 1.9.19</a>.</li>
+</ul>
+<p>For Windows 7 or higher. 64bit builds provide mixed 32/64bit support.</p>
+<p>Nightly builds are available through <a href="https://github.com/jackaudio/jack2/actions">JACK2 GitHub actions</a>.</p>
+<h2 id="jack-source-code-repository">JACK Source Code Repository</h2>
+<p>JACK uses Git as its source control system. Our central git repository is hosted by GitHub.
+We are currently working toward linking the repositories for JACK1 and JACK2 but this work is not complete,
+so for now the commands to get a copy of the source are a little different depending on which tree/version you want.</p>
+<h3 id="jack2-git-repository">JACK2 Git Repository</h3>
+<p>Those without write access can access the repository with this command:</p>
+<pre><code class="hljs language-bash">git <span class="hljs-built_in">clone</span> git://github.com/jackaudio/jack2.git</code></pre>
+<p>You can also point a web browser at</p>
+<pre><code>https://github.com/jackaudio/jack2</code></pre>
+<p>to be able to browse current source code and full history with all the usual
+GitHub goodies.</p>
+<h4 id="write-access">Write Access</h4>
+<p>Those who have been granted write access and have supplied a public key can
+get to the repository with the following command:</p>
+<pre><code class="hljs language-bash">git <span class="hljs-built_in">clone</span> git@github.com:jackaudio/jack2.git</code></pre>
+<h3 id="jack1-git-repository">JACK1 Git Repository</h3>
+<p>Those without write access can access the repository with these commands:</p>
+<pre><code class="hljs language-bash">git <span class="hljs-built_in">clone</span> git://github.com/jackaudio/jack1.git
+<span class="hljs-built_in">cd</span> jack1
+git submodule init
+git submodule update</code></pre>
+<p>You can also point a web browser at</p>
+<pre><code>https://github.com/jackaudio/jack1</code></pre>
+<p>to be able to browse current source code and full history with all the usual
+GitHub goodies.</p>
+<h4 id="write-access">Write Access</h4>
+<p>Those who have been granted write access and have supplied a public key can
+clone the repository with the following commands:</p>
+<pre><code class="hljs language-bash">git <span class="hljs-built_in">clone</span> git@github.com:jackaudio/jack1.git
+<span class="hljs-built_in">cd</span> jack1
+git submodule init
+git submodule update</code></pre>
+<p>You must then edit the <code>.git/config</code> file within jack1 so that the submodule
+entries correctly reference the write-access URL. They should look like this:</p>
+<pre><code class="hljs language-bash">[submodule <span class="hljs-string">"example-clients"</span>]
+    url = git://github.com/jackaudio/example-clients.git
+[submodule <span class="hljs-string">"jack"</span>]
+    url = git://github.com/jackaudio/headers.git
+[submodule <span class="hljs-string">"tools"</span>]
+    url = git://github.com/jackaudio/tools.git</code></pre>
+<p>Eventually the same setup for the submodules will be required for both JACK2 and JACK1,
+but this is only the case for JACK1 at this time.</p>
+            </section>
+        </div>
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright" style="text-align:left">Slate theme maintained by
+            <a href="https://github.com/pages-themes">pages-themes</a>
+            <span style="float:right">This site is open source.
+                <a href="https://github.com/jackaudio/jackaudio.github.com/edit/master/_content/downloads.md">
+                Improve this page</a>
+            </span>
+        </p>
+    </footer>
+</div>
+    </body>
+</html>

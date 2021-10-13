@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <meta name="description" content="JACK Audio Connection Kit | " />
+        <link rel="stylesheet" type="text/css" media="screen" href="/jackaudio.github.com/assets/css/style.css">
+        <link rel="alternate" type="application/atom+xml" href="/jackaudio.github.com/atom.xml" title="JACK Audio News">
+        <title>JACK2 v1.9.13 release | JACK Audio Connection Kit</title>
+        <!-- Favicon Generator Icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/jackaudio.github.com/assets/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/jackaudio.github.com/assets/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/jackaudio.github.com/assets/icons/favicon-16x16.png">
+        <link rel="manifest" href="/jackaudio.github.com/assets/icons/site.webmanifest">
+        <link rel="shortcut icon" href="/jackaudio.github.com/assets/icons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#212121">
+        <meta name="msapplication-config" content="/jackaudio.github.com/assets/icons/browserconfig.xml">
+        <meta name="theme-color" content="#212121">
+    </head>
+    <body>
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jackaudio">View on GitHub</a>
+                <a href="/jackaudio.github.com/">
+                    <img src="/jackaudio.github.com/assets/images/logo.png"
+                        alt="JACK Logo - Home" class="img-fluid">
+                </a>
+                <nav>
+                    <a href="/jackaudio.github.com/"> Home </a> |
+                    <a href="/jackaudio.github.com/news/"> News </a> |
+                    <a href="/jackaudio.github.com/applications/"> Applications </a> |
+                    <a href="/jackaudio.github.com/faq/"> FAQ </a> |
+                    <a href="https://github.com/jackaudio/jackaudio.github.com/wiki"> WIKI </a> |
+                    <a href="/jackaudio.github.com/api/"> API </a> |
+                    <a href="/jackaudio.github.com/downloads/"> Downloads </a> |
+                    <a href="/jackaudio.github.com/community/"> Community Network </a>
+                </nav>
+            </header>
+        </div>
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                    <h2>JACK2 v1.9.13 release</h2>
+    <p><strong>
+        Posted on <time datetime="1570320000"
+        >
+        October 6, 2019 00:00</time>
+                    by <a href="https://github.com/falkTX">
+                    
+                                                                                    
+    <img
+         src="https://avatars.githubusercontent.com/falkTX?v=3&s=24"
+         srcset="https://avatars.githubusercontent.com/falkTX?v=3&s=24 1x, https://avatars.githubusercontent.com/falkTX?v=3&s=48 2x, https://avatars.githubusercontent.com/falkTX?v=3&s=72 3x, https://avatars.githubusercontent.com/falkTX?v=3&s=96 4x"
+         alt="falkTX"
+         height="24"
+         width="24"
+         data-proofer-ignore="true"
+    >
+falkTX
+            </a>
+            </strong></p>
+    <div class="post">
+        <article><p>A new version of JACK2 has just been released.<br/>
+You can grab the latest release source code at
+<a href="https://github.com/jackaudio/jack2/releases">https://github.com/jackaudio/jack2/releases</a>.</p>
+<p>The official changelog is:</p>
+<ul>
+<li>Meta-data API implementation. (and a few tools updated with support for it)</li>
+<li>Correct GPL licence to LGPL for files needed to build libjack.</li>
+<li>Remove FreeBoB backend (superseded by FFADO).</li>
+<li>define JACK_LIB_EXPORT, useful for internal clients.</li>
+<li>Mark jack_midi_reset_buffer as deprecated.</li>
+<li>Add example systemd unit file</li>
+<li>Signal to systemd when jackd is ready.</li>
+<li>Set &quot;seq&quot; alsa midi driver to maximum resolution possible.</li>
+<li>Fix loading internal clients from another internal client.</li>
+<li>Code cleanup and various fixes. (too many to mention here, see git log for details)</li>
+</ul>
+<p>This release is focused on meta-data support, and this is why it took so long.<br/>
+There might be odd cases here and there and a few bugs, as it is often the case
+for all software...<br/>
+So please make sure to report back any issues!</p>
+<p>Special thanks goes to Rui Nuno Capela for the initial pull-request regarding
+meta-data.<br/>
+There was some work needed afterwards, but that was the biggest hurdle and
+motivation needed for a new release. :)</p>
+<p>There are still no updated macOS or Windows builds, those will be handled at
+a later date.<br/>
+Current plan is to have JACK1 feature-parity first
+(only a2jmidid and zita internal clients missing now),<br/>
+and afterwards merging examples/tools and header files to be shared between
+JACK1 and JACK2.</p>
+<p>The situation regarding development of JACK and JACK1 considered legacy has not
+changed since last release 2 years ago.<br/>
+See <a href="/news/2017/12/21/jack2-v1-9-12-release-and-future-plans.html">JACK2 v1.9.12 release and future plans</a> post for more information.</p>
+<p>PS: I will be in Cologne for <a href="https://www.sonoj.org/">Sonoj</a>, giving a talk about
+&quot;Past, Present and Future of JACK&quot;.<br/>
+There is no registration fee, so please feel free to come by and say hello! :)</p></article>
+    </div>
+            </section>
+        </div>
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright" style="text-align:left">Slate theme maintained by
+            <a href="https://github.com/pages-themes">pages-themes</a>
+            <span style="float:right">This site is open source.
+                <a href="https://github.com/jackaudio/jackaudio.github.com/edit/master/_posts/2019-10-06-jack2-v1-9-13-release.md">
+                Improve this page</a>
+            </span>
+        </p>
+    </footer>
+</div>
+    </body>
+</html>
